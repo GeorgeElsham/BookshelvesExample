@@ -12,7 +12,7 @@ import SwiftUI
 // MARK: - This allows the shelves, books, and pages to be refrenced or modified.
 class Reference: ObservableObject {
     
-    var shelves = [Shelf(id: 1,
+    @Published var shelves = [Shelf(id: 1,
                          title: "Example shelf",
                          books: [Book(id: 1,
                                       title: "Example book",
@@ -31,22 +31,16 @@ class Reference: ObservableObject {
     func addShelf(title: String) {
         let newShelfId = shelves.count + 1
         let newShelf = Shelf(id: newShelfId, title: title, books: [])
-        
-        objectWillChange.send()
         shelves.append(newShelf)
     }
     func addBook(title: String) {
         let newBookId = shelves[shelfId - 1].books.count + 1
         let newBook = Book(id: newBookId, title: title, pages: [], shelfId: shelfId)
-        
-        objectWillChange.send()
         shelves[shelfId - 1].books.append(newBook)
     }
     func addPage(content: String) {
         let newPageId = shelves[shelfId - 1].books[bookId - 1].pages.count + 1
         let newPage = Page(id: newPageId, content: content, bookId: bookId)
-        
-        objectWillChange.send()
         shelves[shelfId - 1].books[bookId - 1].pages.append(newPage)
     }
     
