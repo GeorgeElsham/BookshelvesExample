@@ -11,23 +11,20 @@ import Foundation
 
 // MARK: - Your structures you said you cannot modify.
 struct Shelf {
-  var id: Int
-  var title: String
-
-  var books: [Book]
+    var id: Int
+    var title: String
+    var books: [Book]
 }
 
 struct Book {
-  var id: Int
-  var title: String
-
-  var pages: [Page]
-  var shelfId: Int
+    var id: Int
+    var title: String
+    var pages: [Page]
+    var shelfId: Int
 }
 
 struct Page {
-  var id: Int
-  var content: String
-
-  var bookId: Int
+    var id: Int
+    var content: String
+    var bookId: Int
 }

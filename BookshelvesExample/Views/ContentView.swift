@@ -11,39 +11,41 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject private var reference: Reference
+    @EnvironmentObject private var model: BookshelvesModel
     @State private var newItem: String?
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(reference.shelves, id: \.id) { shelf in
+                ForEach(model.shelves, id: \.id) { shelf in
                     NavigationLink(destination: BookEditView(shelfId: shelf.id)) {
                         HStack {
                             Text(shelf.title)
                             Spacer()
-                            Text(self.reference.totalBooks(for: shelf))
+                            Text(model.totalBooks(for: shelf))
                         }
                     }
                 }
                 
-                if newItem != nil {
+                if let newItem = newItem {
                     TextField("New Shelf", text: $newItem.bound, onCommit: {
-                        if !self.newItem!.isEmpty {
-                            self.reference.addShelf(title: self.newItem!)
+                        if !newItem.isEmpty {
+                            model.addShelf(title: newItem)
                         }
                         self.newItem = nil
                     })
                 }
             }
             .navigationBarTitle("Shelves")
-            .navigationBarItems(trailing: Button(action: {
-                self.newItem = ""
-            }, label: {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 25, height: 25)
-            }))
+            .navigationBarItems(
+                trailing: Button(
+                    action: { newItem = "" },
+                    label: {
+                        Image(systemName: "plus.circle.fill")
+                            .imageScale(.large)
+                    }
+                )
+            )
         }
     }
 }

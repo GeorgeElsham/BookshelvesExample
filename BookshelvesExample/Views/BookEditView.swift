@@ -11,7 +11,7 @@ import SwiftUI
 
 struct BookEditView: View {
     
-    @EnvironmentObject private var reference: Reference
+    @EnvironmentObject private var model: BookshelvesModel
     @State private var newItem: String?
     @State private var loaded = false
     let shelfId: Int
@@ -19,20 +19,20 @@ struct BookEditView: View {
     var body: some View {
         List {
             if loaded {
-                ForEach(reference.books, id: \.id) { book in
+                ForEach(model.books, id: \.id) { book in
                     NavigationLink(destination: PageEditView(bookId: book.id)) {
                         HStack {
                             Text(book.title)
                             Spacer()
-                            Text(self.reference.totalPages(for: book))
+                            Text(model.totalPages(for: book))
                         }
                     }
                 }
                 
-                if newItem != nil {
+                if let newItem = newItem {
                     TextField("New Book", text: $newItem.bound, onCommit: {
-                        if !self.newItem!.isEmpty {
-                            self.reference.addBook(title: self.newItem!)
+                        if !newItem.isEmpty {
+                            model.addBook(title: newItem)
                         }
                         self.newItem = nil
                     })
@@ -40,17 +40,19 @@ struct BookEditView: View {
             }
         }
         .navigationBarTitle("Books")
-        .navigationBarItems(trailing: Button(action: {
-            self.newItem = ""
-        }, label: {
-            Image(systemName: "plus.circle.fill")
-                .resizable()
-                .frame(width: 25, height: 25)
-        }))
+        .navigationBarItems(
+            trailing: Button(
+                action: { newItem = "" },
+                label: {
+                    Image(systemName: "plus.circle.fill")
+                        .imageScale(.large)
+                }
+            )
+        )
         .onAppear {
             DispatchQueue.main.async {
-                self.reference.shelfId = self.shelfId
-                self.loaded = true
+                model.shelfId = shelfId
+                loaded = true
             }
         }
     }

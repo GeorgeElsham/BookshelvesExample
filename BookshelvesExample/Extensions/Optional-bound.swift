@@ -13,11 +13,7 @@ import Foundation
 extension Optional where Wrapped == String {
 
     var bound: String {
-        get {
-            return self ?? ""
-        }
-        set {
-            self = newValue
-        }
+        get { self ?? "" }
+        set { self = newValue }
     }
 }

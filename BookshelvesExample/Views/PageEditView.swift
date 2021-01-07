@@ -11,7 +11,7 @@ import SwiftUI
 
 struct PageEditView: View {
     
-    @EnvironmentObject private var reference: Reference
+    @EnvironmentObject private var model: BookshelvesModel
     @State private var newItem: String?
     @State private var loaded = false
     let bookId: Int
@@ -19,14 +19,14 @@ struct PageEditView: View {
     var body: some View {
         List {
             if loaded {
-                ForEach(reference.pages, id: \.id) { page in
+                ForEach(model.pages, id: \.id) { page in
                     Text(page.content)
                 }
                 
-                if newItem != nil {
+                if let newItem = newItem {
                     TextField("New Page", text: $newItem.bound, onCommit: {
-                        if !self.newItem!.isEmpty {
-                            self.reference.addPage(content: self.newItem!)
+                        if !newItem.isEmpty {
+                            model.addPage(content: newItem)
                         }
                         self.newItem = nil
                     })
@@ -34,17 +34,19 @@ struct PageEditView: View {
             }
         }
         .navigationBarTitle("Pages")
-        .navigationBarItems(trailing: Button(action: {
-            self.newItem = ""
-        }, label: {
-            Image(systemName: "plus.circle.fill")
-                .resizable()
-                .frame(width: 25, height: 25)
-        }))
+        .navigationBarItems(
+            trailing: Button(
+                action: { newItem = "" },
+                label: {
+                    Image(systemName: "plus.circle.fill")
+                        .imageScale(.large)
+                }
+            )
+        )
         .onAppear {
             DispatchQueue.main.async {
-                self.reference.bookId = self.bookId
-                self.loaded = true
+                model.bookId = bookId
+                loaded = true
             }
         }
     }

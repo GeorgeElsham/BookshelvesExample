@@ -16,7 +16,7 @@
 		F373BAB623DDCB2C00AFE1A4 /* BookEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373BAB523DDCB2C00AFE1A4 /* BookEditView.swift */; };
 		F373BAB823DDCB3600AFE1A4 /* PageEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373BAB723DDCB3600AFE1A4 /* PageEditView.swift */; };
 		F373BABB23DDCB7900AFE1A4 /* Optional-bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373BABA23DDCB7900AFE1A4 /* Optional-bound.swift */; };
-		F373BABE23DDCBCB00AFE1A4 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373BABD23DDCBCB00AFE1A4 /* Reference.swift */; };
+		F373BABE23DDCBCB00AFE1A4 /* BookshelvesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373BABD23DDCBCB00AFE1A4 /* BookshelvesModel.swift */; };
 		F373BAC023DDCBED00AFE1A4 /* BaseStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373BABF23DDCBED00AFE1A4 /* BaseStructs.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		F373BAB523DDCB2C00AFE1A4 /* BookEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditView.swift; sourceTree = "<group>"; };
 		F373BAB723DDCB3600AFE1A4 /* PageEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageEditView.swift; sourceTree = "<group>"; };
 		F373BABA23DDCB7900AFE1A4 /* Optional-bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional-bound.swift"; sourceTree = "<group>"; };
-		F373BABD23DDCBCB00AFE1A4 /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		F373BABD23DDCBCB00AFE1A4 /* BookshelvesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelvesModel.swift; sourceTree = "<group>"; };
 		F373BABF23DDCBED00AFE1A4 /* BaseStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +108,7 @@
 		F373BABC23DDCBA100AFE1A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F373BABD23DDCBCB00AFE1A4 /* Reference.swift */,
+				F373BABD23DDCBCB00AFE1A4 /* BookshelvesModel.swift */,
 				F373BABF23DDCBED00AFE1A4 /* BaseStructs.swift */,
 			);
 			path = Model;
@@ -141,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "George Elsham";
 				TargetAttributes = {
 					F373BA9C23DDCB0F00AFE1A4 = {
@@ -187,7 +187,7 @@
 			files = (
 				F373BAA123DDCB0F00AFE1A4 /* AppDelegate.swift in Sources */,
 				F373BAB623DDCB2C00AFE1A4 /* BookEditView.swift in Sources */,
-				F373BABE23DDCBCB00AFE1A4 /* Reference.swift in Sources */,
+				F373BABE23DDCBCB00AFE1A4 /* BookshelvesModel.swift in Sources */,
 				F373BAB823DDCB3600AFE1A4 /* PageEditView.swift in Sources */,
 				F373BAA323DDCB0F00AFE1A4 /* SceneDelegate.swift in Sources */,
 				F373BABB23DDCB7900AFE1A4 /* Optional-bound.swift in Sources */,
@@ -236,6 +236,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -296,6 +297,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
